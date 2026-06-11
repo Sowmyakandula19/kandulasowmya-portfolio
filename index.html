@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kandula Sowmya — Full Stack Developer</title>
+  <meta name="description" content="Portfolio of Kandula Sowmya, Full Stack Developer & CSE Undergraduate with CGPA 9.2" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Satoshi:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── CURSOR ─────────────────────────────── -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- ── SCROLL PROGRESS ───────────────────── -->
+  <div class="scroll-bar" id="scroll-bar"></div>
+
+  <!-- ── NOISE OVERLAY ─────────────────────── -->
+  <div class="noise"></div>
+
+  <!-- ── NAVIGATION ────────────────────────── -->
+  <nav id="nav">
+    <a href="#hero" class="nav-logo">
+      <span class="logo-bracket">&lt;</span>KS<span class="logo-bracket">/&gt;</span>
+    </a>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#about" data-nav>About</a></li>
+      <li><a href="#skills" data-nav>Skills</a></li>
+      <li><a href="#projects" data-nav>Projects</a></li>
+      <li><a href="#experience" data-nav>Experience</a></li>
+      <li><a href="#certifications" data-nav>Certs</a></li>
+      <li><a href="#cp" data-nav>CP</a></li>
+      <li><a href="#education" data-nav>Education</a></li>
+      <li><a href="#contact" data-nav>Contact</a></li>
+    </ul>
+    <div class="nav-end">
+      <button class="theme-btn" id="theme-btn" aria-label="Toggle theme">
+        <i class="fas fa-sun" id="theme-icon"></i>
+      </button>
+      <a href="#contact" class="nav-cta">Hire Me</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── MOBILE DRAWER ─────────────────────── -->
+  <div class="drawer" id="drawer">
+    <button class="drawer-close" id="drawer-close"><i class="fas fa-times"></i></button>
+    <ul>
+      <li><a href="#about" class="drawer-link">About</a></li>
+      <li><a href="#skills" class="drawer-link">Skills</a></li>
+      <li><a href="#projects" class="drawer-link">Projects</a></li>
+      <li><a href="#experience" class="drawer-link">Experience</a></li>
+      <li><a href="#certifications" class="drawer-link">Certifications</a></li>
+      <li><a href="#cp" class="drawer-link">Competitive Programming</a></li>
+      <li><a href="#education" class="drawer-link">Education</a></li>
+      <li><a href="#contact" class="drawer-link">Contact</a></li>
+    </ul>
+  </div>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+
+  <!-- ── HERO ──────────────────────────────── -->
+  <section id="hero">
+    <canvas id="hero-canvas"></canvas>
+    <div class="hero-inner container">
+
+      <div class="hero-text">
+        <div class="hero-eyebrow">
+          <span class="dot-live"></span>
+          Available for opportunities
+        </div>
+        <h1 class="hero-heading">
+          <span class="hero-hi">Hey, I'm</span>
+          <span class="hero-name" id="typed-name">Kandula Sowmya</span>
+        </h1>
+        <div class="hero-roles" id="hero-roles">
+          <span class="role active">Full Stack Developer</span>
+          <span class="role">Competitive Programmer</span>
+          <span class="role">CSE Undergraduate</span>
+          <span class="role">Problem Solver</span>
+        </div>
+        <p class="hero-bio">
+          Final-year CSE student with <mark>CGPA 9.2</mark> building and deploying full-stack apps with
+          React.js, Node.js &amp; PostgreSQL. CodeChef <mark>3★ · 1610 rating</mark>
+          with 250+ problems solved.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">
+            <i class="fas fa-rocket"></i> View My Work
+          </a>
+          <a href="files/Kandula_Sowmya_Resume.pdf" class="btn btn-ghost" id="dl-resume">
+            <i class="fas fa-file-arrow-down"></i> Resume
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <i class="fas fa-paper-plane"></i> Contact
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="h-stat">
+            <span class="h-stat-n" data-count="9" data-suffix=".2">0</span>
+            <span class="h-stat-l">CGPA</span>
+          </div>
+          <div class="h-divider"></div>
+          <div class="h-stat">
+            <span class="h-stat-n" data-count="250" data-suffix="+">0</span>
+            <span class="h-stat-l">Problems Solved</span>
+          </div>
+          <div class="h-divider"></div>
+          <div class="h-stat">
+            <span class="h-stat-n" data-count="8" data-suffix="+">0</span>
+            <span class="h-stat-l">Projects</span>
+          </div>
+          <div class="h-divider"></div>
+          <div class="h-stat">
+            <span class="h-stat-n" data-count="2" data-suffix="">0</span>
+            <span class="h-stat-l">Internships</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-photo-wrap">
+        <div class="photo-ring-outer"></div>
+        <div class="photo-ring-mid"></div>
+        <div class="photo-frame">
+          <!-- PHOTO PLACEHOLDER — replace src with your actual photo path -->
+          <img
+  src="images/sowmya.jpeg"
+  alt="Kandula Sowmya"
+  class="hero-photo"
+  id="hero-photo"
+  onerror="this.style.display='none';document.getElementById('photo-fallback').style.display='flex';"
+/>
+          <div class="photo-fallback" id="photo-fallback">
+            <i class="fas fa-user"></i>
+            <span>Add photo.jpg</span>
+          </div>
+        </div>
+        <div class="photo-badges">
+          <div class="pb pb-1"><i class="fab fa-react"></i> React</div>
+          <div class="pb pb-2"><i class="fab fa-node-js"></i> Node.js</div>
+          <div class="pb pb-3"><i class="fab fa-python"></i> Python</div>
+          <div class="pb pb-4">🏆 1610</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ─────────────────────────────── -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="chip"><i class="fas fa-terminal"></i> about.me</span>
+        <h2 class="section-title">The Story <em>Behind the Code</em></h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card reveal">
+          <div class="about-card-glow"></div>
+          <div class="about-id">
+            <div class="about-avatar">
+              <img src="images/sowmya.jpeg" alt="Sowmya" class="about-photo"
+                onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+              <div class="about-photo-fb" style="display:none"><i class="fas fa-user"></i></div>
+            </div>
+            <div>
+              <div class="about-name">Kandula Sowmya</div>
+              <div class="about-role">Full Stack Developer</div>
+              <div class="about-location"><i class="fas fa-location-dot"></i> Visakhapatnam, India</div>
+            </div>
+          </div>
+          <div class="about-facts">
+            <div class="fact"><span class="fact-k">University</span><span class="fact-v">Vignan's IIT</span></div>
+            <div class="fact"><span class="fact-k">Degree</span><span class="fact-v">B.Tech CSE</span></div>
+            <div class="fact"><span class="fact-k">CGPA</span><span class="fact-v accent">9.2 / 10</span></div>
+            <div class="fact"><span class="fact-k">Status</span><span class="fact-v green">Open to Work ✓</span></div>
+            <div class="fact"><span class="fact-k">CodeChef</span><span class="fact-v">3★ · 1610</span></div>
+            <div class="fact"><span class="fact-k">Problems</span><span class="fact-v">250+ Solved</span></div>
+          </div>
+          <div class="about-socials">
+            <a href="https://github.com/kandulasowmya" target="_blank" class="social-pill"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://linkedin.com/in/kandulasowmya" target="_blank" class="social-pill"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://www.codechef.com/users/kandulasowmya" target="_blank" class="social-pill cc-pill">CC</a>
+          </div>
+        </div>
+        <div class="about-content reveal delay-1">
+          <p>I'm a final-year <strong>Computer Science &amp; Engineering undergraduate</strong> at Vignan's Institute of Information Technology (CGPA 9.2), shipping production-grade full-stack applications that solve real problems — from AI-powered journaling to charity subscription platforms.</p>
+          <p>My stack spans <strong>React.js, Next.js, Node.js, FastAPI &amp; PostgreSQL</strong>. I've integrated LLMs via Groq API, built Stripe billing flows, containerised services with Docker, and deployed to Vercel and Render. Clean code and great UX are non-negotiable for me.</p>
+          <p>Competitive programming keeps my problem-solving sharp. With <strong>250+ problems solved</strong> on CodeChef (3★, rating 1610), I approach every engineering challenge with structure and rigour.</p>
+          <p>Through internships at <strong>IBM Edunet</strong> and <strong>Microsoft Azure (via AICTE)</strong>, I've shipped production features in structured team workflows and earned Azure cloud certifications. I also co-authored an <strong>IEEE-style research paper</strong> on edge computing and explainable AI.</p>
+          <div class="about-highlights">
+            <div class="hl-card">
+              <span class="hl-n">2+</span>
+              <span class="hl-l">Internships</span>
+            </div>
+            <div class="hl-card">
+              <span class="hl-n">8+</span>
+              <span class="hl-l">Projects</span>
+            </div>
+            <div class="hl-card">
+              <span class="hl-n">8+</span>
+              <span class="hl-l">Certifications</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SKILLS ─────────────────────────────── -->
+  <section id="skills" class="alt-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="chip"><i class="fas fa-layer-group"></i> tech-stack</span>
+        <h2 class="section-title">Skills &amp; <em>Technologies</em></h2>
+      </div>
+      <div class="skills-bento">
+        <div class="skill-box reveal" data-color="blue">
+          <div class="sb-icon"><i class="fas fa-code"></i></div>
+          <div class="sb-title">Languages</div>
+          <div class="sb-tags">
+            <span class="stag"><i class="fab fa-js-square"></i> JavaScript (ES6+)</span>
+            <span class="stag"><i class="fab fa-python"></i> Python</span>
+            <span class="stag">☕ Java</span>
+            <span class="stag"><i class="fab fa-html5"></i> HTML5</span>
+            <span class="stag"><i class="fab fa-css3-alt"></i> CSS3</span>
+            <span class="stag">🔷 TypeScript</span>
+          </div>
+        </div>
+        <div class="skill-box reveal delay-1" data-color="cyan">
+          <div class="sb-icon"><i class="fas fa-globe"></i></div>
+          <div class="sb-title">Frontend</div>
+          <div class="sb-tags">
+            <span class="stag"><i class="fab fa-react"></i> React.js</span>
+            <span class="stag">▲ Next.js</span>
+            <span class="stag">📱 Flutter</span>
+            <span class="stag">🎨 Tailwind CSS</span>
+            <span class="stag">⚛️ Zustand / Context API</span>
+            <span class="stag">🖥️ SSR / CSR</span>
+          </div>
+        </div>
+        <div class="skill-box reveal delay-2" data-color="purple">
+          <div class="sb-icon"><i class="fas fa-server"></i></div>
+          <div class="sb-title">Backend</div>
+          <div class="sb-tags">
+            <span class="stag"><i class="fab fa-node-js"></i> Node.js</span>
+            <span class="stag">⚡ Express.js</span>
+            <span class="stag">🌶️ Flask</span>
+            <span class="stag">🚀 FastAPI</span>
+            <span class="stag">🔗 REST API Design</span>
+            <span class="stag">⏳ Async Processing</span>
+          </div>
+        </div>
+        <div class="skill-box reveal" data-color="green">
+          <div class="sb-icon"><i class="fas fa-database"></i></div>
+          <div class="sb-title">Databases</div>
+          <div class="sb-tags">
+            <span class="stag">🐘 PostgreSQL</span>
+            <span class="stag">🔷 Supabase</span>
+            <span class="stag">🍃 MongoDB</span>
+            <span class="stag">🐬 MySQL</span>
+            <span class="stag">📝 PL/pgSQL</span>
+            <span class="stag">🗄️ SQL</span>
+          </div>
+        </div>
+        <div class="skill-box reveal delay-1" data-color="orange">
+          <div class="sb-icon"><i class="fas fa-robot"></i></div>
+          <div class="sb-title">AI &amp; LLMs</div>
+          <div class="sb-tags">
+            <span class="stag">⚡ Groq LLM API</span>
+            <span class="stag">🤖 OpenAI API</span>
+            <span class="stag">🧠 Prompt Engineering</span>
+            <span class="stag">🔗 LLM Integration</span>
+            <span class="stag">🔄 AI Workflows</span>
+          </div>
+        </div>
+        <div class="skill-box reveal delay-2" data-color="pink">
+          <div class="sb-icon"><i class="fas fa-cloud"></i></div>
+          <div class="sb-title">Cloud &amp; Tools</div>
+          <div class="sb-tags">
+            <span class="stag">🐳 Docker</span>
+            <span class="stag"><i class="fab fa-git-alt"></i> Git &amp; GitHub</span>
+            <span class="stag">☁️ Vercel</span>
+            <span class="stag">🔵 Microsoft Azure</span>
+            <span class="stag">💳 Stripe</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ───────────────────────────── -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="chip"><i class="fas fa-folder-open"></i> portfolio</span>
+        <h2 class="section-title">Featured <em>Projects</em></h2>
+        <p class="section-sub">Real-world applications crafted with precision and purpose</p>
+      </div>
+
+      <div class="proj-filter reveal">
+        <button class="pf-btn active" data-filter="all">All</button>
+        <button class="pf-btn" data-filter="fullstack">Full Stack</button>
+        <button class="pf-btn" data-filter="ai">AI / LLM</button>
+      </div>
+
+      <div class="projects-grid">
+
+        <!-- ArvyaX Journal -->
+        <article class="proj-card reveal" data-cat="ai">
+          <div class="proj-card-top">
+            <div class="proj-emoji">📓</div>
+            <span class="proj-badge" style="background:rgba(139,92,246,0.18);color:#a78bfa;border-color:rgba(139,92,246,0.3);">AI / LLM</span>
+          </div>
+          <h3 class="proj-name">ArvyaX Journal</h3>
+          <p class="proj-tagline">AI-Powered Journaling App</p>
+          <p class="proj-desc">Production-grade journaling platform that detects user emotions using Groq LLM API and surfaces personalised AI-driven insights across persistent sessions.</p>
+          <ul class="proj-points">
+            <li>Groq LLM API with structured prompt engineering for emotion detection &amp; insights</li>
+            <li>Scalable Node.js/Express REST API handling AI inference workflows</li>
+            <li>Real-time streamed AI responses on React frontend with Context API</li>
+            <li>Containerised with Docker, deployed on Render (independent frontend + backend)</li>
+          </ul>
+          <div class="proj-stack">
+            <span>React.js</span><span>Node.js</span><span>Express</span><span>Groq LLM API</span><span>Docker</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/kandulasowmya/arvyax-journal" target="_blank" class="pl-gh"><i class="fab fa-github"></i> Code</a>
+            <a href="https://arvyax-journal.onrender.com" target="_blank" class="pl-live"><i class="fas fa-arrow-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </article>
+
+        <!-- Golf Charity -->
+        <article class="proj-card reveal delay-1" data-cat="fullstack">
+          <div class="proj-card-top">
+            <div class="proj-emoji">⛳</div>
+            <span class="proj-badge" style="background:rgba(34,211,160,0.18);color:#34d399;border-color:rgba(34,211,160,0.3);">Full Stack</span>
+          </div>
+          <h3 class="proj-name">Golf Charity Subscription</h3>
+          <p class="proj-tagline">Subscription &amp; Draw Platform</p>
+          <p class="proj-desc">End-to-end subscription platform with Stripe billing webhooks, automated monthly draw engine and secure winner verification built on PostgreSQL.</p>
+          <ul class="proj-points">
+            <li>Next.js (SSR/CSR) with Stripe billing webhooks &amp; Tailwind CSS</li>
+            <li>PL/pgSQL database triggers for automated monthly draw engine</li>
+            <li>Supabase Row Level Security for user-level data isolation</li>
+            <li>Relational PostgreSQL schema with structured input validation</li>
+          </ul>
+          <div class="proj-stack">
+            <span>Next.js</span><span>Supabase</span><span>PostgreSQL</span><span>Stripe</span><span>PL/pgSQL</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/kandulasowmya/golf-charity-subscription" target="_blank" class="pl-gh"><i class="fab fa-github"></i> Code</a>
+            <a href="https://golf-charity-subscription.vercel.app" target="_blank" class="pl-live"><i class="fas fa-arrow-up-right-from-square"></i> Live Demo</a>
+          </div>
+        </article>
+
+        <!-- SmartInvest -->
+        <article class="proj-card reveal delay-2" data-cat="fullstack">
+          <div class="proj-card-top">
+            <div class="proj-emoji">📈</div>
+            <span class="proj-badge" style="background:rgba(34,211,160,0.18);color:#34d399;border-color:rgba(34,211,160,0.3);">Full Stack</span>
+          </div>
+          <h3 class="proj-name">SmartInvest</h3>
+          <p class="proj-tagline">Stock Market Guidance Platform</p>
+          <p class="proj-desc">Beginner-friendly stock learning platform with a demo trading system, live stock news feed, and company leaderboards — making the market accessible.</p>
+          <ul class="proj-points">
+            <li>Live stock data &amp; news API integration</li>
+            <li>Risk-free demo trading simulation</li>
+            <li>Company performance leaderboards</li>
+          </ul>
+          <div class="proj-stack">
+            <span>React</span><span>Node.js</span><span>Flask</span><span>MongoDB</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://github.com/kandulasowmya/smartinvest" target="_blank" class="pl-gh"><i class="fab fa-github"></i> Code</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPERIENCE ─────────────────────────── -->
+  <section id="experience" class="alt-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="chip"><i class="fas fa-briefcase"></i> experience</span>
+        <h2 class="section-title">Work <em>Experience</em></h2>
+      </div>
+      <div class="timeline">
+
+        <div class="tl-item reveal">
+          <div class="tl-line"></div>
+          <div class="tl-dot">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div>
+                <span class="tl-company">Microsoft Elevate (via AICTE Portal)</span>
+                <h3 class="tl-role">Microsoft Azure Intern</h3>
+              </div>
+              <span class="tl-period">Jan 2026 – Feb 2026</span>
+            </div>
+            <ul class="tl-points">
+              <li>Completed Azure cloud program covering compute, storage, and deployment pipelines</li>
+              <li>Earned certifications in Azure Cloud Computing and Architecting Cloud Solutions</li>
+              <li>Gained practical exposure to cloud infrastructure design and resource management</li>
+              <li>Deployed and managed scalable applications on Microsoft Azure services</li>
+            </ul>
+            <div class="tl-stack">
+              <span>Microsoft Azure</span><span>Cloud Computing</span><span>Infrastructure</span><span>Deployment Pipelines</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal delay-1">
+          <div class="tl-line"></div>
+          <div class="tl-dot tl-dot-2">
+            <i class="fas fa-laptop-code"></i>
+          </div>
+          <div class="tl-card">
+            <div class="tl-header">
+              <div>
+                <span class="tl-company">IBM Edunet</span>
+                <h3 class="tl-role">Frontend Development Intern</h3>
+              </div>
+              <span class="tl-period">Aug 2025 – Oct 2025</span>
+            </div>
+            <ul class="tl-points">
+              <li>Delivered clean, component-based code in a 6-week production-style workflow</li>
+              <li>Participated in code reviews, practiced structured architecture, and met strict deadlines</li>
+              <li>Collaborated with cross-functional team to build responsive, accessible UI components</li>
+              <li>Integrated design specifications into functional web interfaces</li>
+            </ul>
+            <div class="tl-stack">
+              <span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Responsive Design</span><span>Git</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CERTIFICATIONS ────────────────────── -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="chip"><i class="fas fa-certificate"></i> credentials</span>
+        <h2 class="section-title">Certifications &amp; <em>Credentials</em></h2>
+        <p class="section-sub">Verified by globally recognised institutions</p>
+      </div>
+      <div class="cert-grid">
+
+        <!-- DataCamp -->
+        <div class="cert-card reveal" data-org="datacamp">
+          <div class="cert-org-bar" style="background:linear-gradient(90deg,rgba(3,190,121,0.15),transparent);border-color:rgba(3,190,121,0.2)">
+            <span class="org-name" style="color:#03be79">DataCamp</span>
+            <span class="org-sub">Data Science Platform</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-icon" style="background:rgba(3,190,121,0.12);color:#03be79;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;">🤖</div>
+            <div class="cert-info">
+              <div class="cert-name">AI Fundamentals</div>
+              <div class="cert-level">Artificial Intelligence</div>
+            </div>
+          </div>
+          <div class="cert-tags"><span class="ct" style="background:rgba(3,190,121,0.12);color:#03be79;border-color:rgba(3,190,121,0.2)">AI/ML</span><span class="ct" style="background:rgba(3,190,121,0.12);color:#03be79;border-color:rgba(3,190,121,0.2)">Fundamentals</span></div>
+        </div>
+
+        <!-- Google SQL -->
+        <div class="cert-card reveal delay-1" data-org="google">
+          <div class="cert-org-bar google-bar">
+            <span class="org-name-g">
+              <span style="color:#4285f4">G</span><span style="color:#ea4335">o</span><span style="color:#fbbc04">o</span><span style="color:#4285f4">g</span><span style="color:#34a853">l</span><span style="color:#ea4335">e</span>
+            </span>
+            <span class="org-sub">Career Certificates</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-icon ci-purple">🗄️</div>
+            <div class="cert-info">
+              <div class="cert-name">Introduction to SQL</div>
+              <div class="cert-level">Database Management</div>
+            </div>
+          </div>
+          <div class="cert-tags"><span class="ct purple">SQL</span><span class="ct purple">Databases</span></div>
+        </div>
+
+        <!-- Google Responsible AI -->
+        <div class="cert-card reveal delay-2" data-org="google">
+          <div class="cert-org-bar google-bar">
+            <span class="org-name-g">
+              <span style="color:#4285f4">G</span><span style="color:#ea4335">o</span><span style="color:#fbbc04">o</span><span style="color:#4285f4">g</span><span style="color:#34a853">l</span><span style="color:#ea4335">e</span>
+            </span>
+            <span class="org-sub">Career Certificates</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-icon ci-purple">🤖</div>
+            <div class="cert-info">
+              <div class="cert-name">Intro to Responsible AI</div>
+              <div class="cert-level">AI / Ethics</div>
+            </div>
+          </div>
+          <div class="cert-tags"><span class="ct purple">AI/ML</span><span class="ct purple">Ethics</span></div>
+        </div>
+
+        <!-- NPTEL Java -->
+        <div class="cert-card reveal" data-org="nptel">
+          <div class="cert-org-bar nptel-bar">
+            <span class="org-name">NPTEL</span>
+            <span class="org-sub">IIT Online Courses</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-icon ci-red">☕</div>
+            <div class="cert-info">
+              <div class="cert-name">Programming in Java</div>
+              <div class="cert-level">IIT Certified</div>
+            </div>
+          </div>
+          <div class="cert-tags"><span class="ct red">Java</span><span class="ct red">OOP</span></div>
+        </div>
+
+        <!-- Cisco JS1 -->
+        <div class="cert-card reveal delay-1" data-org="cisco">
+          <div class="cert-org-bar cisco-bar">
+            <span class="org-name">CISCO</span>
+            <span class="org-sub">Networking Academy</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-icon ci-blue"><i class="fab fa-js-square"></i></div>
+            <div class="cert-info">
+              <div class="cert-name">JavaScript Essentials 1 &amp; 2</div>
+              <div class="cert-level">Foundations → Advanced</div>
+            </div>
+          </div>
+          <div class="cert-tags"><span class="ct blue">JavaScript</span><span class="ct blue">Frontend</span></div>
+        </div>
+
+        <!-- Cisco Python -->
+        <div class="cert-card reveal delay-2" data-org="cisco">
+          <div class="cert-org-bar cisco-bar">
+            <span class="org-name">CISCO</span>
+            <span class="org-sub">Networking Academy</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-icon ci-green"><i class="fab fa-python"></i></div>
+            <div class="cert-info">
+              <div class="cert-name">Python Essentials 1 &amp; 2</div>
+              <div class="cert-level">Foundations → Advanced</div>
+            </div>
+          </div>
+          <div class="cert-tags"><span class="ct green">Python</span><span class="ct green">Advanced</span></div>
+        </div>
+
+        <!-- Infosys Azure -->
+        <div class="cert-card reveal" data-org="infosys">
+          <div class="cert-org-bar" style="background:linear-gradient(90deg,rgba(0,112,204,0.15),transparent);border-color:rgba(0,112,204,0.2)">
+            <span class="org-name" style="color:#0070cc">Infosys Springboard</span>
+            <span class="org-sub">Learning Platform</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-icon" style="background:rgba(0,112,204,0.12);color:#0070cc;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;">☁️</div>
+            <div class="cert-info">
+              <div class="cert-name">Azure Cloud Computing</div>
+              <div class="cert-level">Cloud Infrastructure</div>
+            </div>
+          </div>
+          <div class="cert-tags"><span class="ct blue">Azure</span><span class="ct blue">Cloud</span></div>
+        </div>
+
+        <!-- Infosys Frontend -->
+        <div class="cert-card reveal delay-1" data-org="infosys">
+          <div class="cert-org-bar" style="background:linear-gradient(90deg,rgba(0,112,204,0.15),transparent);border-color:rgba(0,112,204,0.2)">
+            <span class="org-name" style="color:#0070cc">Infosys Springboard</span>
+            <span class="org-sub">Learning Platform</span>
+          </div>
+          <div class="cert-body">
+            <div class="cert-icon" style="background:rgba(0,112,204,0.12);color:#0070cc;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;"><i class="fab fa-react"></i></div>
+            <div class="cert-info">
+              <div class="cert-name">Frontend Development Journey</div>
+              <div class="cert-level">Web Development</div>
+            </div>
+          </div>
+          <div class="cert-tags"><span class="ct blue">Frontend</span><span class="ct blue">React</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── COMPETITIVE PROGRAMMING ───────────── -->
+  <section id="cp" class="alt-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="chip"><i class="fas fa-code"></i> competitive-programming</span>
+        <h2 class="section-title">Coding <em>Arena</em></h2>
+      </div>
+      <div class="cp-layout">
+        <div class="cp-left">
+          <div class="cp-hero-card reveal">
+            <div class="cp-platform-logo">CC</div>
+            <div class="cp-platform-info">
+              <div class="cp-platform-name">CodeChef</div>
+              <div class="cp-stars">★★★☆☆</div>
+              <div class="cp-tagline">Competing · Growing · Winning</div>
+            </div>
+          </div>
+          <div class="cp-stats-row">
+            <div class="cp-stat reveal delay-1">
+              <div class="cp-stat-n">1610</div>
+              <div class="cp-stat-l">Peak Rating</div>
+            </div>
+            <div class="cp-stat reveal delay-2">
+              <div class="cp-stat-n">3★</div>
+              <div class="cp-stat-l">Rank</div>
+            </div>
+            <div class="cp-stat reveal delay-3">
+              <div class="cp-stat-n">250+</div>
+              <div class="cp-stat-l">Solved</div>
+            </div>
+          </div>
+          <a href="https://www.codechef.com/users/kandulasowmya" target="_blank" class="btn btn-primary cp-profile-btn reveal">
+            <i class="fas fa-external-link-alt"></i> View CodeChef Profile
+          </a>
+        </div>
+        <div class="cp-right">
+          <div class="cp-skills-card reveal delay-1">
+            <div class="cp-skills-title">Skill Proficiency</div>
+            <div class="cp-bars">
+              <div class="cp-bar-row">
+                <span class="cp-bar-l">Data Structures</span>
+                <div class="cp-bar-track"><div class="cp-bar-fill" data-w="88"></div></div>
+                <span class="cp-bar-p">88%</span>
+              </div>
+              <div class="cp-bar-row">
+                <span class="cp-bar-l">Algorithms</span>
+                <div class="cp-bar-track"><div class="cp-bar-fill" data-w="82"></div></div>
+                <span class="cp-bar-p">82%</span>
+              </div>
+              <div class="cp-bar-row">
+                <span class="cp-bar-l">Dynamic Programming</span>
+                <div class="cp-bar-track"><div class="cp-bar-fill" data-w="74"></div></div>
+                <span class="cp-bar-p">74%</span>
+              </div>
+              <div class="cp-bar-row">
+                <span class="cp-bar-l">Graph Theory</span>
+                <div class="cp-bar-track"><div class="cp-bar-fill" data-w="70"></div></div>
+                <span class="cp-bar-p">70%</span>
+              </div>
+              <div class="cp-bar-row">
+                <span class="cp-bar-l">Mathematics</span>
+                <div class="cp-bar-track"><div class="cp-bar-fill" data-w="80"></div></div>
+                <span class="cp-bar-p">80%</span>
+              </div>
+            </div>
+          </div>
+          <div class="cp-topics reveal delay-2">
+            <div class="cp-topics-title">Topic Coverage</div>
+            <div class="cp-topic-tags">
+              <span>Arrays</span><span>Strings</span><span>Trees</span>
+              <span>Graphs</span><span>DP</span><span>Greedy</span>
+              <span>Sorting</span><span>Recursion</span><span>Hashing</span>
+              <span>Backtracking</span><span>Searching</span><span>Stacks & Queues</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EDUCATION ─────────────────────────── -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="chip"><i class="fas fa-graduation-cap"></i> academics</span>
+        <h2 class="section-title">Educational <em>Journey</em></h2>
+      </div>
+      <div class="edu-grid">
+
+        <div class="edu-card reveal" data-accent="blue">
+          <div class="edu-year">Sep 2023 – Apr 2027</div>
+          <div class="edu-icon-wrap" style="background:rgba(99,179,237,0.12)"><i class="fas fa-university" style="color:#63b3ed"></i></div>
+          <div class="edu-degree">B.Tech — Computer Science &amp; Engineering</div>
+          <div class="edu-school">Vignan's Institute of Information Technology</div>
+          <div class="edu-score-row">
+            <span class="edu-score">9.2</span>
+            <span class="edu-score-label">CGPA / 10.0</span>
+          </div>
+          <div class="edu-pills"><span>Full Stack</span><span>DSA</span><span>DBMS</span><span>OS</span></div>
+        </div>
+
+        <div class="edu-card reveal delay-1" data-accent="teal">
+          <div class="edu-year">2020 – 2022</div>
+          <div class="edu-icon-wrap" style="background:rgba(118,228,247,0.12)"><i class="fas fa-book-open" style="color:#76e4f7"></i></div>
+          <div class="edu-degree">Intermediate (MPC)</div>
+          <div class="edu-school">NRI Junior College, Visakhapatnam</div>
+          <div class="edu-score-row">
+            <span class="edu-score">96.4%</span>
+            <span class="edu-score-label">Percentage · Distinction</span>
+          </div>
+          <div class="edu-pills"><span>Maths</span><span>Physics</span><span>Chemistry</span></div>
+        </div>
+
+        <div class="edu-card reveal delay-2" data-accent="purple">
+          <div class="edu-year">2019 – 2020</div>
+          <div class="edu-icon-wrap" style="background:rgba(127,90,240,0.12)"><i class="fas fa-school" style="color:#7f5af0"></i></div>
+          <div class="edu-degree">SSC — 10th Standard</div>
+          <div class="edu-school">Sri Gowthami High School</div>
+          <div class="edu-score-row">
+            <span class="edu-score">599<small>/600</small></span>
+            <span class="edu-score-label">Top Performer</span>
+          </div>
+          <div class="edu-pills"><span>All Subjects</span><span>Outstanding</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ───────────────────────────── -->
+  <section id="contact" class="alt-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="chip"><i class="fas fa-envelope"></i> reach-out</span>
+        <h2 class="section-title">Let's <em>Connect</em></h2>
+        <p class="section-sub">Open to internships, collaborations and interesting conversations</p>
+      </div>
+      <div class="contact-layout">
+
+        <div class="contact-left reveal">
+          <div class="contact-big-text">Have an opportunity or idea? Let's build something great together.</div>
+          <div class="contact-links">
+            <a href="mailto:kandulasowmya@gmail.com" class="cl-row">
+              <div class="cl-icon" style="background:rgba(99,179,237,0.12)"><i class="fas fa-envelope" style="color:#63b3ed"></i></div>
+              <div><div class="cl-label">Email</div><div class="cl-val">kandulasowmya@gmail.com</div></div>
+              <i class="fas fa-arrow-right cl-arrow"></i>
+            </a>
+            <a href="https://linkedin.com/in/kandulasowmya" target="_blank" class="cl-row">
+              <div class="cl-icon" style="background:rgba(10,102,194,0.12)"><i class="fab fa-linkedin" style="color:#0a66c2"></i></div>
+              <div><div class="cl-label">LinkedIn</div><div class="cl-val">linkedin.com/in/kandulasowmya</div></div>
+              <i class="fas fa-arrow-right cl-arrow"></i>
+            </a>
+            <a href="https://github.com/kandulasowmya" target="_blank" class="cl-row">
+              <div class="cl-icon" style="background:rgba(255,255,255,0.05)"><i class="fab fa-github"></i></div>
+              <div><div class="cl-label">GitHub</div><div class="cl-val">github.com/kandulasowmya</div></div>
+              <i class="fas fa-arrow-right cl-arrow"></i>
+            </a>
+            <a href="https://www.codechef.com/users/kandulasowmya" target="_blank" class="cl-row">
+              <div class="cl-icon" style="background:rgba(249,143,73,0.12)"><i class="fas fa-code" style="color:#f98f49"></i></div>
+              <div><div class="cl-label">CodeChef</div><div class="cl-val">3★ · Rating 1610</div></div>
+              <i class="fas fa-arrow-right cl-arrow"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-right reveal delay-1">
+          <form class="contact-form" id="contact-form" novalidate>
+            <h3 class="form-title">Send a Message</h3>
+            <div class="form-row two-col">
+              <div class="fg">
+                <label class="fl">Name</label>
+                <input type="text" class="fi" id="f-name" placeholder="Your name" />
+              </div>
+              <div class="fg">
+                <label class="fl">Email</label>
+                <input type="email" class="fi" id="f-email" placeholder="your@email.com" />
+              </div>
+            </div>
+            <div class="fg">
+              <label class="fl">Subject</label>
+              <input type="text" class="fi" id="f-subject" placeholder="What's this about?" />
+            </div>
+            <div class="fg">
+              <label class="fl">Message</label>
+              <textarea class="fi" id="f-msg" rows="5" placeholder="Tell me about your project or opportunity…"></textarea>
+            </div>
+            <button type="submit" class="form-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <div class="form-success" id="form-success">
+              <i class="fas fa-circle-check"></i> Message sent! I'll get back to you soon.
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ────────────────────────────── -->
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-logo"><span class="logo-bracket">&lt;</span>KS<span class="logo-bracket">/&gt;</span></div>
+      <p class="footer-copy">Designed &amp; built by <strong>Kandula Sowmya</strong> · Full Stack Developer · © 2025–2026</p>
+      <div class="footer-socials">
+        <a href="https://github.com/kandulasowmya" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/kandulasowmya" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:kandulasowmya@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── BACK TO TOP ────────────────────────── -->
+  <button class="btt" id="btt" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
