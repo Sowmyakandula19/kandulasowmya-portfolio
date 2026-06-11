@@ -36,7 +36,6 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
     raf = requestAnimationFrame(animate);
   })();
 
-  // Grow on interactive elements
   $$('a, button, .proj-card, .cert-card, .skill-box').forEach(el => {
     el.addEventListener('mouseenter', () => follower.classList.add('hovering'));
     el.addEventListener('mouseleave', () => follower.classList.remove('hovering'));
@@ -133,10 +132,8 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   const sections = $$('section[id]');
 
   window.addEventListener('scroll', () => {
-    // shrink
     nav && nav.classList.toggle('scrolled', window.scrollY > 60);
 
-    // active
     let current = '';
     sections.forEach(s => {
       if (window.scrollY >= s.offsetTop - 120) current = s.id;
@@ -191,7 +188,6 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
   for (let i = 0; i < COUNT; i++) particles.push(new P());
 
-  // Mouse parallax
   let mx = canvas.width / 2, my = canvas.height / 2;
   document.addEventListener('mousemove', e => {
     const rect = canvas.getBoundingClientRect();
@@ -327,7 +323,7 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
         card.classList.toggle('hidden', !show);
         if (show) {
           card.style.animation = 'none';
-          card.offsetHeight; // reflow
+          card.offsetHeight;
           card.style.animation = '';
         }
       });
@@ -336,14 +332,14 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 })();
 
 // ──────────────────────────────────────────
-// CONTACT FORM
+// CONTACT FORM — Formspree Integration
 // ──────────────────────────────────────────
 (function initContactForm() {
   const form    = $('#contact-form');
   const success = $('#form-success');
   if (!form) return;
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
 
     const name    = $('#f-name')?.value.trim();
@@ -351,6 +347,7 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
     const subject = $('#f-subject')?.value.trim();
     const msg     = $('#f-msg')?.value.trim();
 
+    // Validation
     if (!name || !email || !msg) {
       shakeForm(form);
       return;
@@ -362,20 +359,51 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
       return;
     }
 
-    // Simulate send
+    // Show sending state
     const btn = form.querySelector('.form-btn');
     if (btn) {
-      btn.textContent = 'Sending…';
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
       btn.disabled = true;
     }
-    setTimeout(() => {
-      form.reset();
-      if (btn) { btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message'; btn.disabled = false; }
-      if (success) { success.classList.add('show'); setTimeout(() => success.classList.remove('show'), 5000); }
-    }, 1200);
+
+    try {
+      const response = await fetch('https://formspree.io/f/xpqejjyg', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name:    name,
+          email:   email,
+          subject: subject,
+          message: msg
+        })
+      });
+
+      if (response.ok) {
+        form.reset();
+        if (btn) {
+          btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+          btn.disabled = false;
+        }
+        if (success) {
+          success.classList.add('show');
+          setTimeout(() => success.classList.remove('show'), 5000);
+        }
+      } else {
+        throw new Error('Server error ' + response.status);
+      }
+
+    } catch (err) {
+      if (btn) {
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        btn.disabled = false;
+      }
+      alert('Oops! Something went wrong. Please email me directly at kandulasowmya19@gmail.com');
+      console.error('Formspree error:', err);
+    }
   });
 
   function isValidEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+
   function shakeForm(el) {
     el.style.animation = 'shake 0.4s ease';
     setTimeout(() => el.style.animation = '', 400);
@@ -388,10 +416,8 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 document.addEventListener('DOMContentLoaded', () => {
   const dlBtn = $('#dl-resume');
   dlBtn && dlBtn.addEventListener('click', e => {
-    // If resume.pdf exists in same folder, this will work automatically.
-    // Otherwise show a friendly message.
     const link = document.createElement('a');
-    link.href = 'resume.pdf';
+    link.href = 'Kandula_Sowmya_Resume.pdf';
     link.download = 'Kandula_Sowmya_Resume.pdf';
     document.body.appendChild(link);
     link.click();
@@ -416,7 +442,7 @@ document.addEventListener('click', e => {
 // ──────────────────────────────────────────
 (function initTilt() {
   const cards = $$('.proj-card, .cert-card, .edu-card');
-  if (window.matchMedia('(hover:none)').matches) return; // skip touch
+  if (window.matchMedia('(hover:none)').matches) return;
 
   cards.forEach(card => {
     card.addEventListener('mousemove', e => {
@@ -425,7 +451,7 @@ document.addEventListener('click', e => {
       const y   = e.clientY - r.top;
       const mx  = r.width  / 2;
       const my  = r.height / 2;
-      const rx  = ((y - my) / my) * 4;   // max 4 deg
+      const rx  = ((y - my) / my) * 4;
       const ry  = ((x - mx) / mx) * -4;
       card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
     });
